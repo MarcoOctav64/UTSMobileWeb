@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Data Notes
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,54 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  
+  <div id ="container">
+
+    Masukkan Judul : 
+    <input type ="text" [(ngModel)]="Judul"/>
+    <br>
+    <br>
+    Masukkan isi Note  : 
+    <input type ="text" [(ngModel)]="isi"/>
+    <br>
+    <br>
+    Masukkan tanggal  : 
+    <input type ="text" [(ngModel)]="tgl"/>
+    <br>
+    <br>
+    Masukkan Nilai Notes :
+    <input type ="text" [(ngModel)]="nilai"/>
+    <br>
+    <br>
+    <ion-button (click)="BSubmit()">Submit</ion-button>
+    <ion-button (click)="upload()">upload Firestore</ion-button>
+    <br>
+    List Notes :
+    <!-- <br>
+    <br>
+    Judul :
+    {{Datajdl}}
+    <br>
+    Isi : 
+    {{Dataisi}}
+    <br>
+    tanggal :
+    {{Datatgl}}
+    <br>
+    nilai : 
+    {{Datanilai}}
+    <br> -->
+
+
+
+
+    <ion-list>
+      <ion-item *ngFor="let data of isiData | async">
+        <h1>{{data.judul}}</h1>
+        <p>{{data.isi}}</p>
+        <p>{{data.tanggal}}</p>
+        <p>{{data.nilai}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
